@@ -1,7 +1,7 @@
 **Project- Automation Framework for Onboarding Flow of Sleepio**
 
-Technology Used: Java, Selenium, JUnit, Cucumber, Maven
-Framework Used- Behavior Driven Developement(BDD)
+Technology Used: Java, Selenium, JUnit, Cucumber, Maven  
+Framework Used- Behavior Driven Developement(BDD). 
 
 Installation:
 git clone https://github.com/vancy-handa/OnboardingSleepIO.git
