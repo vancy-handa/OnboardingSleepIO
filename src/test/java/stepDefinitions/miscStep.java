@@ -64,4 +64,18 @@ public class miscStep {
 	public void user_navigates_to_sleep_score_page_and_Your_Sleep_Score_header_is_shown() throws Throwable {
 		miscFunctions.verify_score_page();
 	}
+	
+	@Then("^specific error related to type of question is shown$")
+	public void specific_error_related_to_type_of_question_is_shown() throws Throwable {
+		String type_of_Question = miscFunctions.verify_type_of_question();
+	    if(type_of_Question.equalsIgnoreCase("DropDown")) {
+	    	dropDownPage.verify_dropDown_error();
+	    }else if(type_of_Question.equalsIgnoreCase("Multi")) {
+	    	multiPage.verify_multi_error_message();
+	    }else if(type_of_Question.equalsIgnoreCase("Single")) {
+	    	singlePage.verify_single_error_message();
+	    }else{
+	    	System.out.println("Yet to implement");
+	    }
+	}
 }

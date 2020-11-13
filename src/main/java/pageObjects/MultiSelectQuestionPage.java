@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MultiSelectQuestionPage {
 	WebDriver driver;
+	String ExpectedMultiErrorMessage="You must select at least 1 answer";
 	
 	//PageFactoryModel
 	public MultiSelectQuestionPage(WebDriver driver) {
@@ -26,7 +27,8 @@ public class MultiSelectQuestionPage {
 	@FindAll(@FindBy(xpath = ".//div[@class='sl-options-wrapper ']/div"))
 	private List<WebElement> list;
 	
-
+	@FindBy(className = "sl-container-radio-options--error")
+	private WebElement multiErrorMessage;
 	
 	public void select_multi_options() {
 		int size = list.size();
@@ -62,4 +64,9 @@ public class MultiSelectQuestionPage {
 		assertTrue(listSize>0);
 	}
 
+	public void verify_multi_error_message() {
+		String actualMultiErrorMessage=multiErrorMessage.getText();
+		System.out.println(actualMultiErrorMessage);
+		assertEquals(ExpectedMultiErrorMessage, actualMultiErrorMessage);
+	}
 }
